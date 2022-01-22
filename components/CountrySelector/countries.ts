@@ -1,6 +1,6 @@
 import { ICountry } from "../../models";
 
-export const COUNTRIES: Array<ICountry> = [
+export const LIST_COUNTRIES: Array<ICountry> = [
   {
     code: "AF",
     imgSrc: "https://flagsapi.com/AF/flat/16.png",
@@ -858,6 +858,6 @@ export const COUNTRIES: Array<ICountry> = [
   },
 ];
 
-export const DEFAULT_COUNTRY = COUNTRIES.find(
+export const DEFAULT_COUNTRY = LIST_COUNTRIES.find(
   ({ code }) => code === "AU"
 ) as ICountry;

@@ -5,10 +5,9 @@ import { ModalContext } from "../../context";
 
 export const DayModal = () => {
   const { setModalDay, modalDay } = useContext(ModalContext);
+  const closeModal = useCallback(() => setModalDay(undefined), []);
 
   if (!modalDay) return null;
-
-  const closeModal = useCallback(() => setModalDay(undefined), []);
 
   return (
     <div className="fixed top-0 bottom-0 left-0 right-0 z-30 flex items-center justify-center bg-opacity-80 bg-slate-900">
@@ -18,7 +17,7 @@ export const DayModal = () => {
           <span>{format(modalDay.date, "PPP")}</span>
           <XIcon
             onClick={closeModal}
-            className="text-slate-400 hover:text-slate-600 transition ease-in-out cursor-pointer h-8 w-8 mx-2"
+            className="w-8 h-8 mx-2 transition ease-in-out cursor-pointer text-slate-400 hover:text-slate-600"
           />
         </h1>
         <ul>
@@ -32,7 +31,7 @@ export const DayModal = () => {
             </li>
           )}
           {modalDay.events.map((event, i) => (
-            <li key={i} className="py-2 my-3 pl-3 border-l-4 border-green-300">
+            <li key={i} className="py-2 pl-3 my-3 border-l-4 border-green-300">
               <p className="flex flex-col sm:items-center sm:flex-row text-md">
                 <span className="font-bold text-green-800">{event.name}</span>
                 {event.types.map((type) => (
